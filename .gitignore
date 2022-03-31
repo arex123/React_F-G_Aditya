@@ -5,6 +5,14 @@
 /.pnp
 .pnp.js
 
+#other random files
+question.js
+question2.js
+page
+
+
+
+
 # testing
 /coverage
 

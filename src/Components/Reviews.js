@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./form.css";
 import {Link} from 'react-router-dom'
 
 const getDatafromLS = () => {
@@ -17,8 +16,6 @@ export const Reviews = () => {
   return (
     <>
       <div className="view-container">
-        {reviews.length > 0 && (
-          <>
             <div className="heading">
               <h1>All Feedback</h1>
             </div>
@@ -32,6 +29,8 @@ export const Reviews = () => {
               </Link>
             </div>
             <hr/>
+        {reviews.length > 0 && (
+          <>
             <div className="table-responsive">
               <table className="table">
                 <thead>
@@ -45,7 +44,6 @@ export const Reviews = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* <Reviews /> */}
                   {reviews.map((review) => (
                     <tr>
                       <td>Aromatic Bar</td>
@@ -62,7 +60,7 @@ export const Reviews = () => {
           </>
         )}
 
-        {reviews.length < 1 && <div>No reviews are added yet</div>}
+        {reviews.length < 1 && <div style={{"text-align":"center"}}>No reviews</div>}
       </div>
     </>
   );

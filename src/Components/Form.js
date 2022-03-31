@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import "./form.css";
 
+
 //getting values from local storage
 const getDatafromLS = () => {
   //LS means local storage
@@ -14,8 +15,14 @@ const getDatafromLS = () => {
   }
 };
 
+
+
+
+
+
+
 export const App = () => {
-  //array to store books after submitting
+  //array to store data after submitting
   console.log("getDatafromLS obje", getDatafromLS);
   const [reviews, setReviews] = useState(getDatafromLS);
 
@@ -25,6 +32,15 @@ export const App = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [exp, setExp] = useState("");
+
+  function handleexperice(e){
+    setExp(e.target.value)
+  }
+
+  function handleEmail(e){
+    let email = e.target.value;
+    setEmail(email)
+  }
 
   //form submit event
   const handleAddReviewsSubmit = (e) => {
@@ -48,7 +64,9 @@ export const App = () => {
 
   //saving data in local storage using useEffect
   useEffect(() => {
+
     localStorage.setItem("reviews", JSON.stringify(reviews));
+
   }, [reviews]);
 
   return (
@@ -99,7 +117,7 @@ export const App = () => {
               type="email"
               className="form-control"
               required
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmail}
               value={email}
             ></input>
             <br></br>
@@ -118,7 +136,7 @@ export const App = () => {
               type="text"
               className="form-control"
               required
-              onChange={(e) => setExp(e.target.value)}
+              onChange={handleexperice}
               value={exp}
             ></input>
             <br></br>
